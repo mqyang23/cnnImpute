@@ -13,6 +13,8 @@ Place your input dataset into the directory cnnimpute/input, and ensure that the
 
 ## 3. Optional arguments:
 
+| Argument | Description |
+| -------- | ----------- |
 | output | Sets the name of the output file. By default, the output file is named imputed.csv. |
 | learning_rate | Sets the learning rate in the neural network. |
 | batch_size | Sets the batch size during training. |
