@@ -1,28 +1,62 @@
-# cnnImpute: Missing Value Recovery for Single Cell RNA Sequencing Data
+# cnnImpute: missing value recovery for single cell RNA sequencing data
 
-## 1. Installing
 
-    git clone https://github.com/mqyang23/cnnimpute
+Wenjuan Zhang, Brandon Huckaby, John Talburt, Sherman Weissman, Mary Qu Yang.
+"cnnImpute: missing value recovery for single cell RNA sequencing data. Scientific Reports, 14(1), 3946"
+https://www.nature.com/articles/s41598-024-53998-x
 
-## 2. Usage
+DeepImpute has been implemented in Python3 and R. 
 
-Place your input dataset into the directory cnnimpute/input, and ensure that the filename is provided in the inputFile parameter.
+## Getting Started
 
-    from cnnimpute.cnnImpute import cnnImpute
-    cnnImpute(inputFile="raw.csv")
+These instructions will get you a copy of the project up and running on your local machine.
 
-## 3. Optional arguments:
+### Installing
 
-| Argument | Description |
-| -------- | ----------- |
-| output | Sets the name of the output file. By default, the output file is named imputed.csv. |
-| learning_rate | Sets the learning rate in the neural network. |
-| batch_size | Sets the batch size during training. |
-| max_epochs | Sets the number of epochs used in training. |
-| dropout_rate | Sets the dropout rate for the dropout layer. |
-| dropoutRate_threshold | Sets the threshold of dropout probability. |
-| inputGene_threshold | Sets the missing-value percentage threshold for input genes. |
+You can install cnnImpute's latest release using pip with the following command:
 
-## 4. Output file:
 
-The output file will be located in the directory cnnimpute/output/.
+```bash
+git clone https://github.com/mqyang23/cnnImpute
+```
+
+## Copy conda environment
+If you haven't installed conda, please install it first. After that, run this code to copy my conda environment:
+```bash
+conda env create -f cnnImpute.yml
+```
+
+## install R dependencies
+First, activate conda environment py123:
+```bash
+conda activate py123
+```
+
+
+### Usage
+
+cnnImpute can be used as a Python package.
+
+```python
+from cnnImpute.cnnimpute import cnnImpute
+cnnImpute(inputFile="/home/user/raw.csv",output="/home/user/cnnImputed.csv")
+```
+
+
+
+```
+Positional parameters:
+  inputFile             Absolute path to input data.
+  output                Absolute path with designed name to output data.
+
+Parameters:
+  inputFile                  Path to input data. 
+  output                     Path to output data. Default: cnnImpute/imputed.csv
+  learning-rate              Learning rate. Default: 0.0001
+  batch-size                 Batch size. Default: 32
+  max-epochs                 Maz epochs while training the model. Default: 150.
+  drop-rate                  Dropout rate for the hidden dropout layer. Default: 0.3
+  dropoutRate-threshold      Dropout tate threshold for identify missing values. Default: 0.5
+  inputGene-threshold        Threshold of dropout percentage for choosing input genes. Default: 0.5
+```
+

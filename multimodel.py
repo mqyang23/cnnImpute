@@ -146,11 +146,10 @@ def define_model(learning_rate,dropout_rate):
 def loadrowname(ind1):
   ind_list = []
   # read gene name information from the txt file
-  with open("/home/junie/Deepimpute/tmp_file/rowname" + str(ind1 + 1) + "_withlabel.txt") as f:
+  with open("/home/junie/cnnImpute/tmp_file/rowname" + str(ind1 + 1) + "_withlabel.txt") as f:
     for tmp_index, line in enumerate(f):
       if ' ' in line:
         ind_list.append(int(line.split('" ')[1]))
-
   return ind_list
 
 def findinputoutputgenes(ind_list,D,dropoutRate_threshold,inputGene_threshold,geneall0):
@@ -183,8 +182,8 @@ def runModel(learning_rate,batch_size,max_epochs,dropout_rate,dropoutRate_thresh
   thre = 0
   # seperate index into different cluster
   for i in range(1, int(max(index1)) + 1):
-      text = "cluster" + str(i)  # str means string
-      globals()[str(text)] = np.where(index1 == i)[0]
+    text = "cluster" + str(i)  # str means string
+    globals()[str(text)] = np.where(index1 == i)[0]
 
   with tf.compat.v1.Session(graph=tf.Graph()) as sess:
 
@@ -195,7 +194,7 @@ def runModel(learning_rate,batch_size,max_epochs,dropout_rate,dropoutRate_thresh
       ind1 = ind + int(gpus[12])
       data_sub = np.array(data[globals()[str("cluster" + str(ind1 + 1))], :])
       # read droprate probability from csv file
-      D = pd.read_csv("/home/junie/Deepimpute/tmp_file/droprate"+str(i+1)+"_withlabel.csv", index_col=0)
+      D = pd.read_csv("/home/junie/cnnImpute/tmp_file/droprate"+str(ind1+1)+"_withlabel.csv", index_col=0)
       # convert it into array
       D = np.array(D)
 

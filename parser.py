@@ -8,8 +8,8 @@ def parse_args():
     parser.add_argument(
         "-o", "--output",
         type=str,
-        default="imputed.csv",
-        help="Path to output data counts. Default: ./filename_imputed.csv",
+        default="cnnImpute/imputed.csv",
+        help="Path to output data counts. Default: cnnImpute/imputed.csv",
     )
 
     parser.add_argument(
@@ -22,19 +22,19 @@ def parse_args():
         "--batch-size",
         type=int,
         default=32,
-        help="Batch size. Default: 64"
+        help="Batch size. Default: 32"
     )
     parser.add_argument(
         "--max-epochs",
         type=int,
         default=150,
-        help="Maximum number of epochs. Default: 500"
+        help="Maximum number of epochs. Default: 150"
     )
     parser.add_argument(
         "--dropout-rate",
         type=float,
         default=0.3,
-        help="Dropout rate for the hidden dropout layer (0<rate<1). Default: 0.2"
+        help="Dropout rate for the hidden dropout layer (0<rate<1). Default: 0.3"
     )
     parser.add_argument(
         "--dropoutRate-threshold",
