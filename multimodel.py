@@ -146,7 +146,7 @@ def define_model(learning_rate,dropout_rate):
 def loadrowname(ind1):
   ind_list = []
   # read gene name information from the txt file
-  with open("/home/junie/cnnImpute/tmp_file/rowname" + str(ind1 + 1) + "_withlabel.txt") as f:
+  with open("cnnImpute/tmp_file/rowname" + str(ind1 + 1) + "_withlabel.txt") as f:
     for tmp_index, line in enumerate(f):
       if ' ' in line:
         ind_list.append(int(line.split('" ')[1]))
@@ -194,7 +194,7 @@ def runModel(learning_rate,batch_size,max_epochs,dropout_rate,dropoutRate_thresh
       ind1 = ind + int(gpus[12])
       data_sub = np.array(data[globals()[str("cluster" + str(ind1 + 1))], :])
       # read droprate probability from csv file
-      D = pd.read_csv("/home/junie/cnnImpute/tmp_file/droprate"+str(ind1+1)+"_withlabel.csv", index_col=0)
+      D = pd.read_csv("cnnImpute/tmp_file/droprate"+str(ind1+1)+"_withlabel.csv", index_col=0)
       # convert it into array
       D = np.array(D)
 
