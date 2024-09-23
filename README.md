@@ -23,7 +23,7 @@ git clone https://github.com/mqyang23/cnnImpute
 ## Copy conda environment
 If you haven't installed conda, please install it first. After that, run this code to copy my conda environment:
 ```bash
-conda env create -f environment_cnnimpute.yml
+conda env create -f cnnImpute/environment_cnnimpute.yml
 ```
 
 ## install R dependencies
